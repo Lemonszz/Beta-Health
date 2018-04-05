@@ -29,7 +29,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 /**
  * Created by Sam on 6/04/2018.
  */
-@Mod(modid="betahealth", name= "Beta Health", version = "1.0.0")
+@Mod(modid="betahealth", name= "Beta Health", version = "1.0.1")
 @Mod.EventBusSubscriber
 public class BetaHealth
 {
@@ -37,7 +37,8 @@ public class BetaHealth
 	public void postInit(FMLPostInitializationEvent event)
 	{
 		ForgeRegistries.ITEMS.forEach(i -> {
-			i.setMaxStackSize(1);
+			if(i instanceof ItemFood)
+				i.setMaxStackSize(1);
 		});
 	}
 
